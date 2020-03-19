@@ -5,9 +5,25 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height:100vh;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.kCEzYv {
+	height:100% !important;
+	width:100% !important;
+}
+div#root, div#root>div.rsc{
+	height:100%;
+}
+.iTgONa {
+    height: calc(100% - 112px) !important;
+}
+
+html {
+    overflow-y: scroll;
 }
