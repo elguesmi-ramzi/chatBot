@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import SimpleForm from './components/SimpleForm';
+import { ThemeProvider } from 'styled-components';
+import './index.css';
+import capSvg from "./img/logo.svg";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const steps = [];
+const theme = {
+  background: '#f5f8fb',
+  fontFamily: 'Helvetica Neue',
+  headerBgColor: '#EF6C00',
+  headerFontColor: '#fff',
+  headerFontSize: '15px',
+  botBubbleColor: '#EF6C00',
+  botFontColor: '#fff',
+  userBubbleColor: '#fff',
+  userFontColor: '#4a4a4a',
+};
+
+class App extends Component {
+  render() {
+    return (
+      <div className="boxcontainer">
+        <div className="logo">
+          <img src={capSvg} alt="cap.jpg" className="cap"></img>
+        </div>
+        
+        <ThemeProvider theme={theme}>
+          <SimpleForm steps={steps} />
+        </ThemeProvider>
+      </div>
+    );
+    }  
 }
 
-export default App;
+export default App
