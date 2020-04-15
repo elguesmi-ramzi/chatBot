@@ -102,9 +102,6 @@ class AdaptiveUserCard extends Component {
     this.triggetNext = this.triggetNext.bind(this);
     
   }
- 
-
-
 
   triggetNext() {
     this.setState({ trigger: true }, () => {
@@ -121,7 +118,7 @@ class AdaptiveUserCard extends Component {
     question.set("owner", this.props.steps.name.value)
     question.append("question", this.props.previousStep.value)
     question.append("solved", false)
-    console.log('questionjson' + question);  
+    console.log(question);  
  
   axios({
     method: 'post',
@@ -133,7 +130,11 @@ class AdaptiveUserCard extends Component {
       //On traite la suite une fois la réponse obtenue 
       rep = reponse.data
       console.log(rep);
-      this.resultat = rep
+      this.setState({
+        resultat:rep,
+        loading:false
+        
+      })
       console.log(this)
       
   })
@@ -152,8 +153,8 @@ class AdaptiveUserCard extends Component {
           //  <AdaptiveCard style={{width: '400px', border: '1px solid black'}} payload={this.result} />
          // </div> 
           <div>
-          <p>Etat :{this.resultat && `${this.resultat.message}`}</p>
-          <p>Id: {this.resultat && `${this.resultat.id}`}</p>
+          <p>Etat :{this.state.resultat && `${this.state.resultat.message}`}</p>
+          <p>Id: {this.state.resultat && `${this.state.resultat.id}`}</p>
           </div>
          );
         
